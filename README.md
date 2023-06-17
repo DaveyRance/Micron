@@ -153,7 +153,12 @@ https://dfh.fm/collections/micron-v2
  Need Doom Acrlyic Panels https://dfh.fm/collections/micron-v2/products/micron-doom-acrylic-panels
  Doom ACM bottom Pannels: https://dfh.fm/collections/micron-v2/products/acm-panels-for-micron-doom
  Doom Extrusions: https://dfh.fm/collections/micron-v2/products/micron-frame-doom-upgrade?variant=43521937637598
- 
+
+Power Relay module to turn off after printing
+https://biqu.equipment/products/bigtreetech-reply-v1-2-automatic-shutdown-module-after-printing
+
+Change Hotend Fan for PWM and read from EBB
+
 Printer Tuning
 https://ellis3dp.com/Print-Tuning-Guide/
 
