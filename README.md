@@ -1,6 +1,7 @@
 # Micron
 ## Hardware
 BTT Manta M8P
+TMC2240 (Allows for sensorless homing)
 CB1 1G 32GB Emmc
 BTT EBB36 
 
@@ -137,6 +138,39 @@ python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out
 
 If you accidentily flash the Manta then re-compile the settings for the Manta, put in to DFU, re-flash and this time use the correct UUID
 
+**ToDo**
+Filter
+https://github.com/zruncho3d/zerofilter
+2 * https://dfh.fm/collections/micron-v2/products/zero-filter-kit-by-zruncho
+Carbon https://dfh.fm/products/nevermore-xl-printer-carbon?variant=43229826842846
+
+Micron Pins Mod
+https://dfh.fm/collections/micron-v2/products/micron-pins-mod-kit
+
+Possibly DoomCube 
+https://dfh.fm/collections/micron-v2
+ Need Doom Acrlyic Panels https://dfh.fm/collections/micron-v2/products/micron-doom-acrylic-panels
+ Doom ACM bottom Pannels: https://dfh.fm/collections/micron-v2/products/acm-panels-for-micron-doom
+ Doom Extrusions: https://dfh.fm/collections/micron-v2/products/micron-frame-doom-upgrade?variant=43521937637598
+ 
+Printer Tuning
+https://ellis3dp.com/Print-Tuning-Guide/
+
 Documents used for this guide.
-From 
+From discord (Aron) https://discord.com/channels/825469421346226226/1061793771169263726/1116736114846339102 
 https://docs.google.com/document/d/1_PcCsZmZDNQKQ4PZVdHbhnT0SBKkc30miwcUaphM4kQ/edit
+
+Canboot Github
+https://github.com/Arksine/CanBoot
+
+KIAUH
+https://github.com/th33xitus/kiauh
+
+BTT CB1 eMMC Github
+https://github.com/bigtreetech/CB1#cb1-emmc-version
+
+BTT EBB github
+https://github.com/bigtreetech/EBB
+
+Manta setup. (Ignore the flashing via SD card just use the DFU used above)
+https://3dpandme.com/2022/10/02/tutorial-btt-manta-m8p-cb1-klipper-guide/
