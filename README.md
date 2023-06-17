@@ -107,7 +107,8 @@ Flash to EBB
 sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
 
 if connected by USB then disconnect and remove the jumper.
-Check if there are 2 devices can be seen via CAN 
+Check if there are 2 devices can be seen via CAN. If not then check the wiring port used on Manta as there are 2 interfaces but only one is terminated by 120 resistor.
+
 ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 
 biqu@BTT-CB1:~/klipper$ ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
