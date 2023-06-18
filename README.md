@@ -159,6 +159,9 @@ https://biqu.equipment/products/bigtreetech-reply-v1-2-automatic-shutdown-module
 
 Change Hotend Fan for PWM and read from EBB
 
+M3 slide in nut support. (Nuts used for where needed to add in nuts even though didnt mention. 
+https://github.com/MotorDynamicsLab/LDOVoron0/blob/main/STLs/Slide_In_Nut_Support.stl
+
 Printer Tuning
 https://ellis3dp.com/Print-Tuning-Guide/
 
