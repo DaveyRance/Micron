@@ -145,6 +145,9 @@ https://github.com/zruncho3d/zerofilter
 2 * https://dfh.fm/collections/micron-v2/products/zero-filter-kit-by-zruncho
 Carbon https://dfh.fm/products/nevermore-xl-printer-carbon?variant=43229826842846
 
+Replacement feet that are easier to mount.
+https://github.com/PrintersForAnts/Micron/blob/main/Mods/L.e.o.p.a.r.d/EasierZDrives/Readme.md
+
 Micron Pins Mod
 https://dfh.fm/collections/micron-v2/products/micron-pins-mod-kit
 
