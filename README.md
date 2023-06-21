@@ -16,25 +16,25 @@ Turn off Reset the DIP switch (USB OTG) and (RPI BOOT) to OFF and turn on. At th
 Klipper should allready be on the device from image.
 Install KIAUH (https://github.com/th33xitus/kiauh)
 Remove mainsail, install fluidd, Add crowsnest.
-Update OS
-sudo apt-get update
-sudo apt-get upgrade
+'Update OS
+`sudo apt-get update
+sudo apt-get upgrade`
 
 Check if Can bus is up and working on Manta
-ifconfig can0
+`ifconfig can0`
 CAN settings that will be used.
 bitrate 500000
 
 If no can then check that Overlay settings are set to enable Can.
 
 Download CanBoot to enable flashing of klipper over Can for EBB in the future.
-cd ~
-git clone https://github.com/Arksine/CanBoot
+`cd ~
+git clone https://github.com/Arksine/CanBoot`
 
 Install CanBoot to Manta
-cd CanBoot
+`cd CanBoot
 make clean
-make menuconfig
+make menuconfig`
 
 Settings to be used.
 **Micro-Controller (STM32)**
@@ -46,7 +46,7 @@ Application start (8KiB offset)
 500000 CAN bus speed
 
 Quit and save
-make
+`make`
 
 put Manta in DFU mode (Hold down boot and press reset) 
 check it is in DFU by doing lsusb and should show device in DFU mode.
@@ -54,9 +54,9 @@ flash CanBoot on to it by running the following.
 sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:leave -d 0483:df11
 
 klipper now must be installed on the Manta
-cd ~/klipper
+`cd ~/klipper
 make clean
-make menuconfig
+make menuconfig`
 
 **Klipper** Settings to be used.
 Micro-Controller (STM32)
@@ -68,16 +68,16 @@ Clock (8MHz)
 500000 CAN bus speed
 
 quit and save
-make
+`make`
 
 Set the manta back in DFU mode then flash
-sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin
+`sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin`
 
 LSUSB should now show 
 Bus 001 Device 003: ID 1d50:606f OpenMoko, Inc. Geschwister Schneider CAN adapter
 
 Find and record the CAN bus UUID
-~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
+`~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0`
 
 A single canbus UUID should be found. (If more than one check that the ebb36/42 is not plugged in if so then unplug and check again. Record this uuid for printer.cfg later.
 Install the 120R jumper on the Manta.
@@ -86,10 +86,10 @@ Connect the EBB via USB (If CAN cable is not connected then jumper USB **Do not 
 enabled DFU (hold boot and press reset) check with lsusb 
 
 Configure CanBoot for the EBB 
-cd ~
+`cd ~
 cd CanBoot
 make clean
-make menuconfig
+make menuconfig`
 
 Settings to be used.
 **Micro-Controller (STM32)**
@@ -101,15 +101,15 @@ Application start (8KiB offset)
 500000 CAN bus speed
 
 quit save
-make
+`make`
 
 Flash to EBB
-sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
+`sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11`
 
 if connected by USB then disconnect and remove the jumper.
 Check if there are 2 devices can be seen via CAN. If not then check the wiring port used on Manta as there are 2 interfaces but only one is terminated by 120 resistor.
 
-~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
+`~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0`
 
 biqu@BTT-CB1:~/klipper$ ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 Found canbus_uuid=eb602e8ed4c3, Application: Klipper
@@ -119,9 +119,9 @@ Total 2 uuids found
 In this case the Klipper is the Manta and the CanBoot is the EBB. If 2 Klipper devices are found then double cick on the reset button within .5 of a second to enter CanBoot mode. Record the UUID for the CanBoot device as this will be needed for printer.cfg
 
 klipper now must be installed on the EBB
-cd ~/klipper
+`cd ~/klipper
 make clean
-make menuconfig
+make menuconfig`
 
 **Klipper** Settings to be used.
 Micro-Controller (STM32)
@@ -132,21 +132,21 @@ Clock (8MHz)
 500000 CAN bus speed
 
 Quit, Save
-make
+`make`
 
 flash to EBB update the following command with the UUID for the EBB
-python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out/klipper.bin
+`python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out/klipper.bin`
 
 If you accidentily flash the Manta then re-compile the settings for the Manta, put in to DFU, re-flash and this time use the correct UUID
 
 **ToDo**
-Filter
-https://github.com/zruncho3d/zerofilter
-2 * https://dfh.fm/collections/micron-v2/products/zero-filter-kit-by-zruncho
-Carbon https://dfh.fm/products/nevermore-xl-printer-carbon?variant=43229826842846
+1. Filter
+- https://github.com/zruncho3d/zerofilter
+- 2 * https://dfh.fm/collections/micron-v2/products/zero-filter-kit-by-zruncho
+- Carbon https://dfh.fm/products/nevermore-xl-printer-carbon?variant=43229826842846
 
-Replacement feet that are easier to mount.
-https://github.com/PrintersForAnts/Micron/blob/main/Mods/L.e.o.p.a.r.d/EasierZDrives/Readme.md
+2. Replacement feet that are easier to mount.
+ https://github.com/PrintersForAnts/Micron/blob/main/Mods/L.e.o.p.a.r.d/EasierZDrives/Readme.md
 
 Manta Mount
 https://github.com/VoronDesign/Voron-Parts/blob/main/DIN_Mounts/Controllers/Bigtreetech/Manta_M8P_2pc.stl
