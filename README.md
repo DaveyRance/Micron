@@ -148,24 +148,24 @@ If you accidentily flash the Manta then re-compile the settings for the Manta, p
 2. Replacement feet that are easier to mount.
  https://github.com/PrintersForAnts/Micron/blob/main/Mods/L.e.o.p.a.r.d/EasierZDrives/Readme.md
 
-Manta Mount
-https://github.com/VoronDesign/Voron-Parts/blob/main/DIN_Mounts/Controllers/Bigtreetech/Manta_M8P_2pc.stl
+3. Manta Mount
+ https://github.com/VoronDesign/Voron-Parts/blob/main/DIN_Mounts/Controllers/Bigtreetech/Manta_M8P_2pc.stl
 
-Micron Pins Mod
-https://dfh.fm/collections/micron-v2/products/micron-pins-mod-kit
+4. Micron Pins Mod
+ https://dfh.fm/collections/micron-v2/products/micron-pins-mod-kit
 
-Possibly DoomCube 
+5. Possibly DoomCube 
 https://dfh.fm/collections/micron-v2
  Need Doom Acrlyic Panels https://dfh.fm/collections/micron-v2/products/micron-doom-acrylic-panels
  Doom ACM bottom Pannels: https://dfh.fm/collections/micron-v2/products/acm-panels-for-micron-doom
  Doom Extrusions: https://dfh.fm/collections/micron-v2/products/micron-frame-doom-upgrade?variant=43521937637598
 
-Power Relay module to turn off after printing
+6. Power Relay module to turn off after printing
 https://biqu.equipment/products/bigtreetech-reply-v1-2-automatic-shutdown-module-after-printing
 
-Change Hotend Fan for PWM and read from EBB
+7. Change Hotend Fan for PWM and read from EBB
 
-M3 slide in nut support. (Nuts used for where needed to add in nuts even though didnt mention. 
+8. M3 slide in nut support. (Nuts used for where needed to add in nuts even though didnt mention. 
 https://github.com/MotorDynamicsLab/LDOVoron0/blob/main/STLs/Slide_In_Nut_Support.stl
 
 Printer Tuning
