@@ -148,6 +148,9 @@ Carbon https://dfh.fm/products/nevermore-xl-printer-carbon?variant=4322982684284
 Replacement feet that are easier to mount.
 https://github.com/PrintersForAnts/Micron/blob/main/Mods/L.e.o.p.a.r.d/EasierZDrives/Readme.md
 
+Manta Mount
+https://github.com/VoronDesign/Voron-Parts/blob/main/DIN_Mounts/Controllers/Bigtreetech/Manta_M8P_2pc.stl
+
 Micron Pins Mod
 https://dfh.fm/collections/micron-v2/products/micron-pins-mod-kit
 
