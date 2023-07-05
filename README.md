@@ -17,8 +17,10 @@ Klipper should allready be on the device from image.
 Install KIAUH (https://github.com/th33xitus/kiauh)
 Remove mainsail, install fluidd, Add crowsnest.
 'Update OS
-`sudo apt-get update
-sudo apt-get upgrade`
+`
+  sudo apt-get update
+  sudo apt-get upgrade
+`
 
 Check if Can bus is up and working on Manta
 `ifconfig can0`
