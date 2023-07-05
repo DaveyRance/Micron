@@ -30,8 +30,10 @@ bitrate 500000
 If no can then check that Overlay settings are set to enable Can.
 
 Download CanBoot to enable flashing of klipper over Can for EBB in the future.
-`cd ~
-git clone https://github.com/Arksine/CanBoot`
+```
+cd ~
+git clone https://github.com/Arksine/CanBoot
+```
 
 Install CanBoot to Manta
 ```
