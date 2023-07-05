@@ -16,14 +16,14 @@ Turn off Reset the DIP switch (USB OTG) and (RPI BOOT) to OFF and turn on. At th
 Klipper should allready be on the device from image.
 Install KIAUH (https://github.com/th33xitus/kiauh)
 Remove mainsail, install fluidd, Add crowsnest.
-'Update OS
-`
-  sudo apt-get update
-  sudo apt-get upgrade
-`
+Update OS
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
 
 Check if Can bus is up and working on Manta
-`ifconfig can0`
+```ifconfig can0```
 CAN settings that will be used.
 bitrate 500000
 
