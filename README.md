@@ -122,18 +122,20 @@ Check if there are 2 devices can be seen via CAN. If not then check the wiring p
 
 ```~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0```
 
+```
 biqu@BTT-CB1:~/klipper$ ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 Found canbus_uuid=eb602e8ed4c3, Application: Klipper
 Found canbus_uuid=34c8f1e1cab5, Application: CanBoot
 Total 2 uuids found
+```
 
 In this case the Klipper is the Manta and the CanBoot is the EBB. If 2 Klipper devices are found then double cick on the reset button within .5 of a second to enter CanBoot mode. Record the UUID for the CanBoot device as this will be needed for printer.cfg
 
 klipper now must be installed on the EBB
 ```
 cd ~/klipper
-make clean
-make menuconfig
+make clean KCONFIG_CONFIG=config.ebb
+make menuconfig KCONFIG_CONFIG=config.ebb
 ```
 
 **Klipper** Settings to be used.
@@ -145,7 +147,7 @@ Clock (8MHz)
 500000 CAN bus speed
 
 Quit, Save
-```make```
+```make KCONFIG_CONFIG=config.ebb```
 
 flash to EBB update the following command with the UUID for the EBB
 ```python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out/klipper.bin```
