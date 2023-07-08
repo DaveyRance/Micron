@@ -117,6 +117,7 @@ quit save
 ```make KCONFIG_CONFIG=config.ebb```
 
 Flash to EBB
+
 ```sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11```
 
 if connected by USB then disconnect and remove the jumper.
@@ -151,6 +152,7 @@ Quit, Save
 ```make KCONFIG_CONFIG=config.ebb```
 
 flash to EBB update the following command with the UUID for the EBB
+
 ```python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out/klipper.bin```
 
 If you accidentily flash the Manta then re-compile the settings for the Manta, put in to DFU, re-flash and this time use the correct UUID
