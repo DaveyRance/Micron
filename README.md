@@ -44,14 +44,14 @@ make clean KCONFIG_CONFIG=config.manta
 make menuconfig KCONFIG_CONFIG=config.manta
 ```
 
-Settings to be used.
-**Micro-Controller (STM32)**
-**Processor (STM32G0B1)**
-Build Canboot deployment (Do not build)
-Clock (8MHz)
-**Communication (Can bus (On PD12/PD13)**
-Application start (8KiB offset)
-1000000 CAN bus speed
+Canboot Settings to be used.
+- **Micro-Controller (STM32)**
+- **Processor (STM32G0B1)**
+- Build Canboot deployment (Do not build)
+- Clock (8MHz)
+- **Communication (Can bus (On PD12/PD13)**
+- Application start (8KiB offset)
+- 1000000 CAN bus speed
 
 Quit and save
 ```make KCONFIG_CONFIG=config.manta```
@@ -71,12 +71,12 @@ make menuconfig KCONFIG_CONFIG=config.manta
 ```
 
 **Klipper** Settings to be used.
-Micro-Controller (STM32)
-Processor (STM32G0B1)
-**Bootloader offset (8 KiB bootloader)**
-Clock (8MHz)
-**Communication (USB to CAN bus bridge (USB on PA11/PA12))**
-**CAN bus interface (Can bus (On PD12/PD13))**
+- Micro-Controller (STM32)
+- Processor (STM32G0B1)
+- **Bootloader offset (8 KiB bootloader)**
+- Clock (8MHz)
+- **Communication (USB to CAN bus bridge (USB on PA11/PA12))**
+- **CAN bus interface (Can bus (On PD12/PD13))**
 
 quit and save
 ```make KCONFIG_CONFIG=config.manta```
@@ -104,14 +104,14 @@ make clean KCONFIG_CONFIG=config.ebb
 make menuconfig KCONFIG_CONFIG=config.ebb
 ```
 
-Settings to be used.
-**Micro-Controller (STM32)**
-**Processor (STM32G0B1)**
-Build Canboot deployment (Do not build)
-Clock (8MHz)
-**Communication (Can bus (On PB0/PB1)**
-Application start (8KiB offset)
-1000000 CAN bus speed
+Canboot for EBB Settings to be used.
+- **Micro-Controller (STM32)**
+- **Processor (STM32G0B1)**
+- Build Canboot deployment (Do not build)
+- Clock (8MHz)
+- **Communication (Can bus (On PB0/PB1)**
+- Application start (8KiB offset)
+- 1000000 CAN bus speed
 
 quit save
 ```make KCONFIG_CONFIG=config.ebb```
@@ -140,12 +140,12 @@ make clean KCONFIG_CONFIG=config.ebb
 make menuconfig KCONFIG_CONFIG=config.ebb
 ```
 
-**Klipper** Settings to be used.
-Micro-Controller (STM32)
-Processor (STM32G0B1)
-**Bootloader offset (8 KiB bootloader)**
-Clock (8MHz)
-**CAN bus interface (Can bus (On PB0/PB1))** (These should match what was configured in CanBoot)
+**Klipper** for EBB Settings to be used.
+- Micro-Controller (STM32)
+- Processor (STM32G0B1)
+- **Bootloader offset (8 KiB bootloader)**
+- Clock (8MHz)
+- **CAN bus interface (Can bus (On PB0/PB1))** (These should match what was configured in CanBoot)
 
 Quit, Save
 ```make KCONFIG_CONFIG=config.ebb```
