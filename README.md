@@ -22,6 +22,13 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
+Install NTP client and confirm that it is syncing time.
+```
+sudo apt-get install systemd-timesyncd
+systemctl status systemd-timesyncd.service
+timedatectl status --all
+```
+
 Check if Can bus is up and working on Manta
 ```ifconfig can0```
 CAN settings that will be used.
