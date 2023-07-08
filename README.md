@@ -25,8 +25,8 @@ sudo apt-get upgrade
 Check if Can bus is up and working on Manta
 ```ifconfig can0```
 CAN settings that will be used.
-bitrate 500000
-
+bitrate 1000000
+```sudo nano /etc/network/interfaces.d/can0````
 If no can then check that Overlay settings are set to enable Can.
 
 Download CanBoot to enable flashing of klipper over Can for EBB in the future.
@@ -35,11 +35,11 @@ cd ~
 git clone https://github.com/Arksine/CanBoot
 ```
 
-Install CanBoot to Manta
+Install CanBoot to Manta (We are using the config file to make it so when we run again it has remembered all the settings for each board.
 ```
 cd CanBoot
-make clean
-make menuconfig
+make clean KCONFIG_CONFIG=config.manta
+make menuconfig KCONFIG_CONFIG=config.manta
 ```
 
 Settings to be used.
@@ -49,21 +49,23 @@ Build Canboot deployment (Do not build)
 Clock (8MHz)
 **Communication (Can bus (On PD12/PD13)**
 Application start (8KiB offset)
-500000 CAN bus speed
+1000000 CAN bus speed
 
 Quit and save
-```make```
+```make KCONFIG_CONFIG=config.manta```
 
 put Manta in DFU mode (Hold down boot and press reset) 
 check it is in DFU by doing lsusb and should show device in DFU mode.
 flash CanBoot on to it by running the following.
+```
 sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:leave -d 0483:df11
+```
 
 klipper now must be installed on the Manta
 ```
 cd ~/klipper
-make clean
-make menuconfig
+make clean KCONFIG_CONFIG=config.manta
+make menuconfig KCONFIG_CONFIG=config.manta
 ```
 
 **Klipper** Settings to be used.
@@ -73,10 +75,9 @@ Processor (STM32G0B1)
 Clock (8MHz)
 **Communication (USB to CAN bus bridge (USB on PA11/PA12))**
 **CAN bus interface (Can bus (On PD12/PD13))**
-500000 CAN bus speed
 
 quit and save
-```make```
+```make KCONFIG_CONFIG=config.manta```
 
 Set the manta back in DFU mode then flash
 ```sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin```
@@ -93,12 +94,12 @@ Install the 120R jumper on the Manta.
 Connect the EBB via USB (If CAN cable is not connected then jumper USB **Do not have both USB jumper and CAN power connected same time** you will let magic smoke out.
 enabled DFU (hold boot and press reset) check with lsusb 
 
-Configure CanBoot for the EBB 
+Configure CanBoot for the **EBB** 
 ```
 cd ~
 cd CanBoot
-make clean
-make menuconfig
+make clean KCONFIG_CONFIG=config.ebb
+make menuconfig KCONFIG_CONFIG=config.ebb
 ```
 
 Settings to be used.
@@ -108,10 +109,10 @@ Build Canboot deployment (Do not build)
 Clock (8MHz)
 **Communication (Can bus (On PB0/PB1)**
 Application start (8KiB offset)
-500000 CAN bus speed
+1000000 CAN bus speed
 
 quit save
-```make```
+```make KCONFIG_CONFIG=config.ebb```
 
 Flash to EBB
 ```sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11```
