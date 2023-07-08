@@ -159,8 +159,8 @@ If you accidentily flash the Manta then re-compile the settings for the Manta, p
 
 **ToDo**
 
-~~0. Canboot / Klipper config files
-- https://docs.vorondesign.com/community/howto/drachenkatze/automating_klipper_mcu_updates.html~~
+~~0. Canboot / Klipper config files~~
+~~- https://docs.vorondesign.com/community/howto/drachenkatze/automating_klipper_mcu_updates.html~~
  
 1. Filter
 - https://github.com/zruncho3d/zerofilter
