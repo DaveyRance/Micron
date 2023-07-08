@@ -26,7 +26,9 @@ Check if Can bus is up and working on Manta
 ```ifconfig can0```
 CAN settings that will be used.
 bitrate 1000000
-```sudo nano /etc/network/interfaces.d/can0```
+```
+sudo nano /etc/network/interfaces.d/can0
+```
 If no can then check that Overlay settings are set to enable Can.
 
 Download CanBoot to enable flashing of klipper over Can for EBB in the future.
