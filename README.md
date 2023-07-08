@@ -120,7 +120,7 @@ Flash to EBB
 ```sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11```
 
 if connected by USB then disconnect and remove the jumper.
-Check if there are 2 devices can be seen via CAN. If not then check the wiring port used on Manta as there are 2 interfaces but only one is terminated by 120 resistor.
+Check if there are 2 devices can be seen via CAN. If not then check the wiring port used on Manta as there are 2 interfaces but only one is terminated by 120 resistor. If still one or no devices then make sure that communication port is correct.
 
 ```~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0```
 
@@ -146,7 +146,6 @@ Processor (STM32G0B1)
 **Bootloader offset (8 KiB bootloader)**
 Clock (8MHz)
 **CAN bus interface (Can bus (On PB0/PB1))** (These should match what was configured in CanBoot)
-500000 CAN bus speed
 
 Quit, Save
 ```make KCONFIG_CONFIG=config.ebb```
