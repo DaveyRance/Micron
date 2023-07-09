@@ -25,6 +25,7 @@ sudo apt-get upgrade
 Install NTP client and confirm that it is syncing time.
 ```
 sudo apt-get install systemd-timesyncd
+sudo timedatectl set-timezone "America/New_York"
 systemctl status systemd-timesyncd.service
 timedatectl status --all
 ```
