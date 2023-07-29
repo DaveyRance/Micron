@@ -31,7 +31,9 @@ timedatectl status --all
 ```
 
 Check if Can bus is up and working on Manta
-```ifconfig can0```
+```
+ifconfig can0
+```
 CAN settings that will be used.
 bitrate 1000000
 ```
@@ -62,7 +64,9 @@ Canboot Settings to be used.
 - 1000000 CAN bus speed
 
 Quit and save
-```make KCONFIG_CONFIG=config.manta```
+```
+make KCONFIG_CONFIG=config.manta
+```
 
 put Manta in DFU mode (Hold down boot and press reset) 
 check it is in DFU by doing lsusb and should show device in DFU mode.
@@ -87,16 +91,24 @@ make menuconfig KCONFIG_CONFIG=config.manta
 - **CAN bus interface (Can bus (On PD12/PD13))**
 
 quit and save
-```make KCONFIG_CONFIG=config.manta```
+```
+make KCONFIG_CONFIG=config.manta
+```
 
 Set the manta back in DFU mode then flash
-```sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin```
+```
+sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin
+```
 
-```lsusb``` should now show 
+```
+lsusb
+``` should now show 
 Bus 001 Device 003: ID 1d50:606f OpenMoko, Inc. Geschwister Schneider CAN adapter
 
 Find and record the CAN bus UUID
-```~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0```
+```
+~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
+```
 
 A single canbus UUID should be found. (If more than one check that the ebb36/42 is not plugged in if so then unplug and check again. Record this uuid for printer.cfg later.
 Install the 120R jumper on the Manta.
@@ -122,16 +134,22 @@ Canboot for EBB Settings to be used.
 - 1000000 CAN bus speed
 
 quit save
-```make KCONFIG_CONFIG=config.ebb```
+```
+make KCONFIG_CONFIG=config.ebb
+```
 
 Flash to EBB
 
-```sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11```
+```
+sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
+```
 
 if connected by USB then disconnect and remove the jumper.
 Check if there are 2 devices can be seen via CAN. If not then check the wiring port used on Manta as there are 2 interfaces but only one is terminated by 120 resistor. If still one or no devices then make sure that communication port is correct.
 
-```~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0```
+```
+~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
+```
 
 ```
 biqu@BTT-CB1:~/klipper$ ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
@@ -157,11 +175,15 @@ make menuconfig KCONFIG_CONFIG=config.ebb
 - **CAN bus interface (Can bus (On PB0/PB1))** (These should match what was configured in CanBoot)
 
 Quit, Save
-```make KCONFIG_CONFIG=config.ebb```
+```
+make KCONFIG_CONFIG=config.ebb
+```
 
 flash to EBB update the following command with the UUID for the EBB
 
-```python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out/klipper.bin```
+```
+python3 ~/CanBoot/scripts/flash_can.py -i can0 -u **YOUR_UUID** -f ~/klipper/out/klipper.bin
+```
 
 If you accidentily flash the Manta then re-compile the settings for the Manta, put in to DFU, re-flash and this time use the correct UUID
 
