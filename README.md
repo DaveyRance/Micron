@@ -100,9 +100,7 @@ Set the manta back in DFU mode then flash
 sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin
 ```
 
-```
-lsusb
-``` should now show 
+```lsusb``` should now show 
 Bus 001 Device 003: ID 1d50:606f OpenMoko, Inc. Geschwister Schneider CAN adapter
 
 Find and record the CAN bus UUID
