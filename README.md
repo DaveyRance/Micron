@@ -5,7 +5,7 @@ TMC2240 (Allows for sensorless homing)
 CB1 1G 32GB Emmc
 BTT EBB36 
 
-To get EB1 working.
+To get CB1 working.
 Push the DIP switch (USB OTG) and (RPI BOOT) to ON to enter BOOT mode.
 (https://github.com/bigtreetech/CB1#cb1-emmc-version)
 Then before restarting make sure to set the Overlay Setting for fdtfile else it will not boot.
@@ -40,40 +40,6 @@ bitrate 1000000
 sudo nano /etc/network/interfaces.d/can0
 ```
 If no can then check that Overlay settings are set to enable Can.
-
-Download CanBoot to enable flashing of klipper over Can for EBB in the future.
-```
-cd ~
-git clone https://github.com/Arksine/CanBoot
-```
-
-Install CanBoot to Manta (We are using the config file to make it so when we run again it has remembered all the settings for each board.
-```
-cd CanBoot
-make clean KCONFIG_CONFIG=config.manta
-make menuconfig KCONFIG_CONFIG=config.manta
-```
-
-Canboot Settings to be used.
-- **Micro-Controller (STM32)**
-- **Processor (STM32G0B1)**
-- Build Canboot deployment (Do not build)
-- Clock (8MHz)
-- **Communication (Can bus (On PD12/PD13)**
-- Application start (8KiB offset)
-- 1000000 CAN bus speed
-
-Quit and save
-```
-make KCONFIG_CONFIG=config.manta
-```
-
-put Manta in DFU mode (Hold down boot and press reset) 
-check it is in DFU by doing lsusb and should show device in DFU mode.
-flash CanBoot on to it by running the following.
-```
-sudo dfu-util -a 0 -D ~/CanBoot/out/canboot.bin --dfuse-address 0x08000000:force:leave -d 0483:df11
-```
 
 klipper now must be installed on the Manta
 ```
@@ -114,6 +80,11 @@ Install the 120R jumper on the Manta.
 Connect the EBB via USB (If CAN cable is not connected then jumper USB **Do not have both USB jumper and CAN power connected same time** you will let magic smoke out.
 enabled DFU (hold boot and press reset) check with lsusb 
 
+Download CanBoot to enable flashing of klipper over Can for EBB in the future.
+```
+cd ~
+git clone https://github.com/Arksine/CanBoot
+```
 Configure CanBoot for the **EBB** 
 ```
 cd ~
