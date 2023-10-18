@@ -63,7 +63,7 @@ make KCONFIG_CONFIG=config.manta
 
 Set the manta back in DFU mode then flash
 ```
-sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08002000 -D ~/klipper/out/klipper.bin
+sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000 -D ~/klipper/out/klipper.bin
 ```
 
 ```lsusb``` should now show 
